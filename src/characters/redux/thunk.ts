@@ -9,12 +9,12 @@ export const loadCharactersAsync = createAsyncThunk(
   }
 );
 
-// export const killCharactersAsync = createAsyncThunk<
-//   AllCharacters,
-//   {
-//     repo: ApiRepository<AllCharacters>;
-//     id: number;
-//   }
-// >("characters/delete", async ({repo, id}) => {
-//   return await repo.delete(id)
-// })
+export const killCharactersAsync = createAsyncThunk<
+  AllCharacters,
+  {
+    repo: ApiRepository<AllCharacters>;
+    character: AllCharacters;
+  }
+>("characters/update", async ({ repo, character }) => {
+  return await repo.update(character.id, { ...character, alive: false });
+});

@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { AllCharacters } from "../types/allCharacters";
-import { loadCharactersAsync } from "./thunk";
+import { killCharactersAsync, loadCharactersAsync } from "./thunk";
 
 export type CharacterState = {
   characters: AllCharacters[];
@@ -18,6 +18,13 @@ const sliceCharacters = createSlice({
     builder.addCase(loadCharactersAsync.fulfilled, (state, { payload }) => ({
       ...state,
       characters: payload,
+    }));
+
+    builder.addCase(killCharactersAsync.fulfilled, (state, { payload }) => ({
+      ...state,
+      characters: state.characters.map((item) => {
+        return item.id === payload.id ? payload : item;
+      }),
     }));
   },
 });

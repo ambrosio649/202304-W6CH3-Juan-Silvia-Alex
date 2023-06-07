@@ -3,7 +3,7 @@ import { ApiRepository } from "../../core/services/api.repository";
 import { AllCharacters } from "../types/allCharacters";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../core/store/store";
-import { loadCharactersAsync } from "../redux/thunk";
+import { killCharactersAsync, loadCharactersAsync } from "../redux/thunk";
 
 export function useCharacters() {
   const characterUrl = "http://localhost:3000/characters/";
@@ -20,8 +20,16 @@ export function useCharacters() {
     dispatch(loadCharactersAsync(repo));
   }, [repo, dispatch]);
 
+  const handleKill = useCallback(
+    (character: AllCharacters) => {
+      dispatch(killCharactersAsync({ repo, character }));
+    },
+    [repo, dispatch]
+  );
+
   return {
     characters,
     handleLoad,
+    handleKill,
   };
 }
