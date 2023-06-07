@@ -1,10 +1,11 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo } from "react";
 import { ApiRepository } from "../../core/services/api.repository";
 import { AllCharacters } from "../types/allCharacters";
-import { consoleError } from "../../core/services/errors";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../core/store/store";
+import { loadCharactersAsync } from "../redux/thunk";
 
 export function useCharacters() {
-  const [characters, setCharacters] = useState<AllCharacters[]>([]);
   const characterUrl = "http://localhost:3000/characters/";
 
   const repo: ApiRepository<AllCharacters> = useMemo(
@@ -12,33 +13,15 @@ export function useCharacters() {
     []
   );
 
-  const handleLoad = useCallback(async () => {
-    const loadedCharacters = await repo.getAll();
-    setCharacters(loadedCharacters);
-  }, [repo]);
+  const characters = useSelector((state: RootState) => state.characters);
+  const dispatch: AppDispatch = useDispatch();
 
-  useEffect(() => {
-    handleLoad();
-  }, [handleLoad]);
-
-  const handleKill = async (character: AllCharacters) => {
-    try {
-      const killCharacter = await repo.update(character.id, {
-        ...character,
-        alive: false,
-      });
-      setCharacters(
-        characters.map((item) =>
-          item.id === character.id ? killCharacter : item
-        )
-      );
-    } catch (error) {
-      consoleError(error);
-    }
-  };
+  const handleLoad = useCallback(() => {
+    dispatch(loadCharactersAsync(repo));
+  }, [repo, dispatch]);
 
   return {
     characters,
-    handleKill,
+    handleLoad,
   };
 }

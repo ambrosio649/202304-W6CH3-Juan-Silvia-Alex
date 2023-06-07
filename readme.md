@@ -1,9 +1,11 @@
-# Week 4 - Challenge 3
+# Week 6 - Challenge 3
 
-## GoT DOM - React - Typescript
+## GoT DOM - React/Redux - Typescript
 
-Crea un proyecto nuevo en React - TypeScrypt
-Reproduce el challenge Week 3 - Challenge 1
+Challenge por parejas: Pair Programming
+
+Crea un proyecto nuevo en React/Redux - TypeScrypt
+Reproduce el challenge Week 4 - Challenge 3
 
 - Utiliza básicamente el mismo modelo de datos
   a - La misma estructura de clases -> generamos los datos
