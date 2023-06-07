@@ -1,0 +1,84 @@
+{
+  "characters": [
+    {
+      "id": 1,
+      "tvShow": "Game of Thrones",
+      "name": "Joffrey",
+      "family": "Baratheon",
+      "age": 20,
+      "emoji": "👑",
+      "alive": true,
+      "communicate": "You're all gonna die",
+      "rulingYears": 5
+    },
+    {
+      "id": 2,
+      "tvShow": "Game of Thrones",
+      "name": "Jaime",
+      "family": "Lannister",
+      "age": 25,
+      "emoji": "🗡",
+      "alive": true,
+      "communicate": "First hit, then ask",
+      "weapon": "sword",
+      "skills": 7
+    },
+    {
+      "id": 3,
+      "tvShow": "Game of Thrones",
+      "name": "Daenerys",
+      "family": "Targaryen",
+      "age": 25,
+      "emoji": "🗡",
+      "alive": true,
+      "communicate": "First hit, then ask",
+      "weapon": "sword",
+      "skills": 9
+    },
+    {
+      "id": 4,
+      "tvShow": "Game of Thrones",
+      "name": "Tyryon",
+      "family": "Lannister",
+      "age": 30,
+      "emoji": "🎓",
+      "alive": true,
+      "communicate": "I think I'll be dying soon",
+      "characterAdvised": {
+        "id": 3,
+        "tvShow": "Game of Thrones",
+        "name": "Daenerys",
+        "family": "Targaryen",
+        "age": 25,
+        "emoji": "🗡",
+        "alive": true,
+        "communicate": "First hit, then ask",
+        "weapon": "sword",
+        "skills": 9
+      }
+    },
+    {
+      "id": 5,
+      "tvShow": "Game of Thrones",
+      "name": "Bronn",
+      "family": "Lannister",
+      "age": 30,
+      "emoji": "🛡",
+      "alive": true,
+      "communicate": "I'm a loser",
+      "knight": {
+        "id": 2,
+        "tvShow": "Game of Thrones",
+        "name": "Jaime",
+        "family": "Lannister",
+        "age": 25,
+        "emoji": "🗡",
+        "alive": true,
+        "communicate": "First hit, then ask",
+        "weapon": "sword",
+        "skills": 7
+      },
+      "pelotismo": 7
+    }
+  ]
+}
