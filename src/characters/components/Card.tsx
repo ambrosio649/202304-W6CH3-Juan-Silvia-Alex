@@ -1,11 +1,17 @@
+import { useCharacters } from "../hooks/use.characters";
 import { AllCharacters } from "../types/allCharacters";
 
 type PropsType = {
   item: AllCharacters;
-  handleKill: (character: AllCharacters) => Promise<void>;
 };
 
-export function Card({ item, handleKill }: PropsType) {
+export function Card({ item }: PropsType) {
+  const { handleKill } = useCharacters();
+
+  const handleClick = () => {
+    handleKill({ ...item, alive: !item.alive });
+  };
+
   const renderDifferentClass = (item: AllCharacters) => {
     if ("rulingYears" in item) {
       return <li>Años de reinado: {item.rulingYears.toLocaleString()}</li>;
@@ -33,10 +39,6 @@ export function Card({ item, handleKill }: PropsType) {
       );
     }
   };
-
-  function handleClick() {
-    handleKill(item);
-  }
 
   return (
     <>

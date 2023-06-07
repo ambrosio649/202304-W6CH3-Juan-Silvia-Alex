@@ -7,7 +7,7 @@
       "family": "Baratheon",
       "age": 20,
       "emoji": "👑",
-      "alive": true,
+      "alive": false,
       "communicate": "You're all gonna die",
       "rulingYears": 5
     },
@@ -18,7 +18,7 @@
       "family": "Lannister",
       "age": 25,
       "emoji": "🗡",
-      "alive": true,
+      "alive": false,
       "communicate": "First hit, then ask",
       "weapon": "sword",
       "skills": 7
@@ -38,7 +38,7 @@
     {
       "id": 4,
       "tvShow": "Game of Thrones",
-      "name": "Tyryon",
+      "name": "Tyrion",
       "family": "Lannister",
       "age": 30,
       "emoji": "🎓",
